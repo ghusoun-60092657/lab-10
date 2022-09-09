@@ -18,3 +18,16 @@ print('Do you want to Enter a new student ? yes/no')
 new_student = input()
 if new_student == 'yes':
     create_new_student()
+# add retrieve student fun
+def retrieve_student_info(id_):
+    for i, val in enumerate(student_list):
+       if val['id'] == id_:
+           print ('name = ',val['name'],'  ','age = ',val['age'])
+           break
+       
+print('Do you want to Retrieve student information? yes/no')
+student_info = input()
+if student_info == 'yes':
+    print('Enter Student ID: ')
+    student_id = input()
+    retrieve_student_info(student_id)

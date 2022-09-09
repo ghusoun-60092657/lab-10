@@ -31,3 +31,15 @@ if student_info == 'yes':
     print('Enter Student ID: ')
     student_id = input()
     retrieve_student_info(student_id)
+# add delete student fun
+def delete_student(id_):
+     for i, val in enumerate(student_list):
+       if val['id'] == id_:
+           student_list.pop(i)
+print('Do you want to Delete student information? yes/no')
+student_delete = input()
+if student_delete == 'yes':
+    print('Enter Student ID to delete: ')
+    student_id = input()
+    delete_student(student_id)
+print('Students list ',student_list)

@@ -24,7 +24,17 @@ class TestStudentManagementSystem(unittest.TestCase):
         self.assertNotEqual(check(name),'','Ener a valid Name')
         self.assertEqual(check_int(name), False,'You should enter a string name')
         create_new_student(id,name,age)
-
+    def test_To_Get_Data_By_ID(self):
+        #check if the list is not empty ,id is not null,id is a number,id is in the list
+        print('Do you want to Retrieve student information? yes/no')
+        student_info = input()
+        if student_info != 'yes':return
+        if len(student_list) == 0 :return
+        student_id = input('Enter Student ID: ')
+        self.assertNotEqual(check(student_id),'','Ener a valid student ID')
+        self.assertEqual(check_int(student_id),True,'You should enter a numerical ID')
+        self.assertEqual(check_exist(student_id),True,'You should enter an exist ID')
+        retrieve_student_info(student_id)
 
 def check(arg):
     return arg

@@ -1,4 +1,5 @@
 import unittest
+
 student_list = []
 class TestStudentManagementSystem(unittest.TestCase):
     def test_Create_New_Student(self):
@@ -35,6 +36,17 @@ class TestStudentManagementSystem(unittest.TestCase):
         self.assertEqual(check_int(student_id),True,'You should enter a numerical ID')
         self.assertEqual(check_exist(student_id),True,'You should enter an exist ID')
         retrieve_student_info(student_id)
+    def test_To_Delete_By_ID(self):
+        #check if the list is not empty ,id is not null,id is a number,id is in the list
+        print('Do you want to Delete student information? yes/no')
+        student_delete = input()
+        if student_delete != 'yes':return
+        if len(student_list) == 0 :return
+        student_id = input('Enter Student ID to delete: ')
+        self.assertNotEqual(check(student_id),'','Ener a valid student ID')
+        self.assertEqual(check_int(student_id),True,'You should enter a numerical ID')
+        self.assertEqual(check_exist(student_id),True,'You should enter an exist ID')
+        delete_student(student_id)
 
 def check(arg):
     return arg
@@ -55,8 +67,6 @@ def create_new_student(id,name,age):
     student_list.append(student)
     print('\nAdded to the list')
     Test.test_Create_New_Student()
-
-
 
 
 # add retrieve student fun
